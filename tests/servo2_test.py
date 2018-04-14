@@ -16,12 +16,12 @@ while True:
 	var = input("Please enter a number 0-127: ")
 	print("You entered " + str(var))
 	var2 = input("Please enter another number 0-127: ")
-	ledout_values = [int(var), int(var2)]
+	ledout_values = [chr(int(var)), chr(int(var2))]
 	print(ledout_values)
 	bus.write_i2c_block_data(DEVICE_ADDRESS, DEVICE_REG_LEDOUT0, ledout_values)
 	time.sleep(2)
 
-	ledout_values = [0, 12]
+	ledout_values = [chr(0), chr(12)]
 	print(ledout_values)
 	bus.write_i2c_block_data(DEVICE_ADDRESS, DEVICE_REG_LEDOUT0, ledout_values)
 	time.sleep(3)
