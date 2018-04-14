@@ -21,7 +21,7 @@ while True:
 	bus.write_i2c_block_data(DEVICE_ADDRESS, DEVICE_REG_LEDOUT0, ledout_values)
 	time.sleep(2)
 
-	ledout_values = [chr(0), chr(12)]
+	ledout_values = [0, 12]
 	print(ledout_values)
 	bus.write_i2c_block_data(DEVICE_ADDRESS, DEVICE_REG_LEDOUT0, ledout_values)
 	time.sleep(3)
