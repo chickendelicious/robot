@@ -16,7 +16,10 @@ while True:
 	var = input("Please enter a series of commands:")
 	commands = var.split(';')
 	for command in commands:
-		ledout_values = command.split(',')
+		ledout_values = []
+		vals = command.split(',')
+		for val in vals:
+			ledout_values.append(int(val))
 		print(ledout_values)
 		bus.write_i2c_block_data(DEVICE_ADDRESS, DEVICE_REG_LEDOUT0, ledout_values)
 		time.sleep(2)
