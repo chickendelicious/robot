@@ -18,10 +18,9 @@ while True:
 	var2 = input("Please enter another number 0-127: ")
         
 	ledout_values = [0,5]
-        print(ledout_values)
-        bus.write_i2c_block_data(DEVICE_ADDRESS, DEVICE_REG_LEDOUT0, ledout_values)
-        time.sleep(2)
-
+    print(ledout_values)
+    bus.write_i2c_block_data(DEVICE_ADDRESS, DEVICE_REG_LEDOUT0, ledout_values)
+    time.sleep(2)
 
 	ledout_values = [1, int(var), int(var2)]
 	print(ledout_values)
