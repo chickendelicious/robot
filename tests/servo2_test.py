@@ -13,22 +13,27 @@ DEVICE_REG_LEDOUT0 = 0x1d
 
 #Write an array of registers
 while True:
-	var = input("Please enter a number 0-180: ")
-	print("You entered " + str(var))
-	var2 = input("Please enter another number 0-180: ")
-		
-	ledout_values = [0,5]
+	var = input("Please enter a series of commands:")
+	commands = var.split(';')
+	for command in commands:
+		ledout_values = command.split(',')
+		print(ledout_values)
+		bus.write_i2c_block_data(DEVICE_ADDRESS, DEVICE_REG_LEDOUT0, ledout_values)
+		time.sleep(2)
+	#var2 = input("Please enter another number 0-180: ")
+	'''	
+	ledout_values = [0,5] #send blink
 	print(ledout_values)
 	bus.write_i2c_block_data(DEVICE_ADDRESS, DEVICE_REG_LEDOUT0, ledout_values)
-	time.sleep(2)
 
 	ledout_values = [1, int(var), int(var2)]
 	print(ledout_values)
 	bus.write_i2c_block_data(DEVICE_ADDRESS, DEVICE_REG_LEDOUT0, ledout_values)
 	time.sleep(2)
 
-	ledout_values = [1, 0, 12]
+	ledout_values = [1, 0, 0]
 	print(ledout_values)
 	bus.write_i2c_block_data(DEVICE_ADDRESS, DEVICE_REG_LEDOUT0, ledout_values)
 	time.sleep(3)
 
+'''
