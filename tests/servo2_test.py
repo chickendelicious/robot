@@ -13,9 +13,9 @@ DEVICE_REG_LEDOUT0 = 0x1d
 
 #Write an array of registers
 while True:
-	var = input("Please enter a number 0-127: ")
+	var = input("Please enter a number 0-180: ")
 	print("You entered " + str(var))
-	var2 = input("Please enter another number 0-127: ")
+	var2 = input("Please enter another number 0-180: ")
 		
 	ledout_values = [0,5]
 	print(ledout_values)
